@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Functions</title>
+    </head>
+    <body>
+            
+        <script>
+            /*function function1(){
+                console.log('hello');
+                console.log(2+2);
+            }
+            function1(); //calling the function
+            function1(); //calling the function*/
+
+            // defining a function with parameter with a default value
+            function calculateTax(cost, taxrate=0.1) {
+                console.log(cost*taxrate);
+            }
+            calculateTax(1000,0.2); //this is called passing an arguement which i prefered over the default value
+            calculateTax(2000);
+        </script>
+
+    </body>
+
+</html>
+
+<!-- Rule for function names and parameter name -->
+ <!-- 1. can't use special words Example: function -->
+  <!-- 2. Can't start with a number -->
+<!-- 3. Can't use special charachters except: $_ -->
+ <!-- Best practice = use camelCase -->
