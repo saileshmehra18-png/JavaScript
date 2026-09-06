@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Objects</title>
+    </head>
+    <body>
+        <script>
+            // const product = {
+            //     name:'stock',
+            //     price: 1090
+            // };
+            // console.log(product);
+            // console.log(product.name);
+            // console.log(product.price);
+
+            // product.name = 'cotton sock'
+            // console.log(product.name);
+
+            // product.newProperty = true;
+            // console.log(product);
+
+            // delete product.newProperty;
+            // console.log(product)
+            // console.log(typeof product)
+
+            const product2 = {
+                name: 'shirt',
+                'delievery-time':'1-day',
+                rating:{
+                    stars:4.5,
+                    count:87,
+                },
+                //nested object//
+
+                fun: function function1(){
+                    console.log('function inside object');
+                }
+                //a function is another type of value you can put inside a object
+            }
+            console.log(product2);
+            console.log(product2.name)
+            console.log(product2['name']) // bracket notation let's use properties that normally don't work with .notaion for eg
+            console.log(product2['delievery-time']);
+
+            console.log(product2.rating.count);
+            product2.fun();
+
+            //fun fact console is also an object and log is a function saved inside the function, same goes for math.random : theese are called build in objects//
+
+            //JSON syntax can be understand by all programming languages that's why we prefer it when we sending data betweeen computers or when we store data
+
+            console.log(JSON.stringify(product2));//it answers strings and do not save functions
+            const jsonString = JSON.stringify(product2);
+            console.log(JSON.prase(jsonString));
+            //this converts the json string to js object
+        </script>
+    </body>
+</html>
