@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+  <head></head>
+  <body>
+    <button onclick="
+        playgame('Head');
+        ">head
+        </button>
+
+    <button onclick="
+        playgame('tails');
+    ">tails
+    </button>
+
+    <button onclick="
+        scores.wins=0;
+        scores.losses=0;
+        localStorage.removeItem('scores');
+    ">resset</button>
+
+    <script>
+        let scores = JSON.parse(localStorage.getItem('scores'))   || {
+            wins:0,
+            losses:0
+        }
+
+        function playgame(guess){
+            let randomNumber = Math.random();
+            let computermove = randomNumber>0.5? 'Head':'tails';
+            console.log(computermove);
+            
+            let result = ''
+
+            if (guess===computermove){
+                result = 'You win'
+            }else{
+                result = 'You lose'
+            }
+            console.log(result)
+
+            if (result==='You win'){
+                scores.wins +=1
+            }else{
+                scores.losses +=1
+            }
+
+            localStorage.setItem('scores',JSON.stringify(scores))
+
+            alert(`result:${result} Your wins:${scores.wins} Your losses:${scores.losses}`)
+        }     
+    </script>
+  </body>
+</html>
