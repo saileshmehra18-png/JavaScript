@@ -22,7 +22,7 @@
             // delete product.newProperty;
             // console.log(product)
             // console.log(typeof product)
-
+            /*
             const product2 = {
                 name: 'shirt',
                 'delievery-time':'1-day',
@@ -35,7 +35,7 @@
                 fun: function function1(){
                     console.log('function inside object');
                 }
-                //a function is another type of value you can put inside a object
+                //a function is another type of value you can put inside a object it's called method
             }
             console.log(product2);
             console.log(product2.name)
@@ -51,8 +51,58 @@
 
             console.log(JSON.stringify(product2));//it answers strings and do not save functions
             const jsonString = JSON.stringify(product2);
-            console.log(JSON.prase(jsonString));
+            console.log(JSON.parse(jsonString));
             //this converts the json string to js object
+            */
+
+            console.log('hello'.length);
+            console.log('hello'.toUpperCase());
+            //string can also has property's and method bcz js feature auto-boxing: js wraps this string into a special object then let us perform methods on it
+
+            const object1 = {
+                message:'hello'
+            };
+            const object2 = object1;// this is  a faster way to copy objects it is not really a copy but a refrence
+            object1.message = 'Good job!'
+            console.log(object1);
+            console.log(object2);
+            object2.message ='ram ram'
+            console.log(object1);
+            console.log(object2);
+
+            // notice u  can change the values with const variabe that's cz object stores refrences and u can't change the refrence(key) but can change the vlue of it.
+
+
+            const object3 = {
+                message: 'good job!',
+            }
+            console.log(object3 === object1);// now this is false cz objects stores refrences and the rerfrence id for both are diff
+            console.log(object2 === object1);// this will return true cz both have same refrences
+
+            const object4 = {
+                message: 'good job!',
+                price:799
+            }
+            //const message = objects4.message;
+
+            const {message,price} = object4; //it's called deepstructuring shortcuts it makes easy to take out the property out of an object
+            console.log(message);
+            console.log(price);
+
+        
+            const object5 = {
+               // message:message,
+                message, // both will return the saved msg value
+                 
+                // method: function function1(){
+                //     console.log('method');
+                // }
+                method(){
+                    console.log('method')
+                }// this does the same as above 
+            }
+            console.log(object5);
+            object5.method();
         </script>
     </body>
 </html>
