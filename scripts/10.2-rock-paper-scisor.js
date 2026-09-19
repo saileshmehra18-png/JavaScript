@@ -80,4 +80,4 @@ function playGame(playerMove) {
 
     alert(`You choose ${playerMove}. and the computer chose ${computermove}. ${result}
         wins:${score.wins} , losses:${score.losses} , ties:${score.ties}`);
-}
+} 
