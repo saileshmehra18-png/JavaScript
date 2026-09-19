@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>practice</title>
+    </head>
+    <body>
+        <input class="js-input" onkeydown="
+            handleEnter(event);
+            ">
+        <button onclick="
+            showInput();
+        ">Submit</button>
+        <P class="js-output"></P>
+
+        <script>
+            function showInput() {
+                const name = document.querySelector('.js-input').value
+
+                document.querySelector('.js-output').innerHTML = name;
+            }
+            function handleEnter(event) {
+                if (event.key === 'Enter'){
+                    showInput();
+                }
+            }
+        </script>
+    </body>
+</html>
