@@ -1,9 +1,4 @@
-const myArray = [{name:'make dinner',
-                date:'24,5,5332'},
-
-                {name:'wash dishes ',
-                date:'53,3,3342'}
-                ];
+const myArray = JSON.parse(localStorage.getItem('storage_list')) || [];
 
 rendermyArray();
 
@@ -20,13 +15,13 @@ function rendermyArray(){
              <div>${due}</div>
             <button class="delete-todo-button" onclick="
                 myArray.splice(${i},1);
+                localStorage.setItem('storage_list', JSON.stringify(myArray));
                 rendermyArray();
             ">Delete</button>`
         myArrayHTML += html
     }
 
-    document.querySelector('.js-show-text').innerHTML=
-    myArrayHTML;
+    document.querySelector('.js-show-text').innerHTML= myArrayHTML;
     
 }
 
@@ -45,10 +40,9 @@ function addArray() {
         date
         //both the ways are correct this is shortcut
         }
-
-
     )
 
     input.value = '';
+    localStorage.setItem('storage_list', JSON.stringify(myArray));
     rendermyArray();
 }
