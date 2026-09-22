@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>advance functions</title>
+    </head>
+    <body>
+        <script>
+            /*
+            function greeting(){
+                console.log('hello');
+            }
+            greeting();
+
+            //function are a type of value and we can save them in a variable for eg.
+
+            const function1 = function greeting(){
+                console.log('hello2');
+            };
+            console.log(function1);
+            console.log(typeof function1);
+            function1(); //this way you can call this funciton saved inside varaible funciton1
+
+            //bcz funcitons are values you can also sotre them inside objects
+            const object1 = {
+                name:'meow',
+                fun: function(){
+                    console.log('meowwws');
+                }
+            }
+            object1.fun();
+
+            //bcz function are values we can also pass them inside another function
+            function run(param){
+                param();
+            }
+            run(function(){
+                console.log('allahh');
+            })
+                */
+
+            /*
+            //so this function make whatever function inside it (f,n) work after n amuont of time
+            setTimeout(function(){
+                console.log('time-out');
+            },3000);
+            //this is called asynchranized function bcz it allows our code to do other things till the timer is going on unlike the normal funcitons of js (line by line)
+
+
+            //this one is also asynchranised and this one kept on running the function f after every time n(f,n)
+            setInterval(function(){
+                console.log('string-interval')
+            },3000)
+            */
+
+            [
+            'make dinner',
+            'wash clothes',
+            'do dishes'
+            ].forEach(function(value,index){
+                console.log(index);
+                console.log(value);
+            });
+        </script>
+    </body>
+</html>
