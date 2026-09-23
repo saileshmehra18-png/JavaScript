@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title class="js-title">App</title>
+    </head>
+    <body>
+
+        <button class="js-add-button" onclick="
+            updateMessage('Add');
+             ">Add</button>
+        <button class="js-remove-button" onclick="
+         updateMessage('Remove')">Remove</button>
+
+        <script>
+            let message = 0;
+            let intervalId;
+            let isplaying=false;
+
+            displayFunction();
+            function displayFunction (){
+                intervalId = setInterval(function () {   if (message === 0) {
+                        stopChanging();
+                    }else{
+                        if (document.title === 'App') {
+                            document.title = `(${message} New messages)`;
+                        } else {
+                            document.title = 'App'
+                        }                      
+                        isplaying=true;
+                    }  
+            },1000);}
+
+            function updateMessage(button){
+                
+                if (button==='Add'){
+                    message+=1
+                    if(!isplaying){
+                        displayFunction();
+                    }     
+                }
+                else{
+                    if(message>0){
+                        message -= 1;
+                        if (!isplaying) {
+                            displayFunction();
+                        }
+                    }
+                    
+                }
+            }
+            function stopChanging(){
+                clearInterval(intervalId);
+                document.title = 'App';
+                isplaying =false;
+            }
+        </script>
+    </body>
+</html>
