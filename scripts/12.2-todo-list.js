@@ -5,23 +5,34 @@ rendermyArray();
 function rendermyArray(){
     let myArrayHTML = ''
     
-    myArray.forEach(function(todoObject,index){
+    myArray.forEach((todoObject,index)=>{
         const {name, date} = todoObject;
 
         const html =
             `<div>${name}</div>
              <div>${date}</div>
-            <button class="delete-todo-button" onclick="
-                myArray.splice(${index},1);
-                localStorage.setItem('storage_list', JSON.stringify(myArray));
-                rendermyArray();
-            ">Delete</button>`
+            <button class="delete-todo-button  js-delete-todo-button" 
+            >Delete</button>`
         myArrayHTML += html
     })
 
     document.querySelector('.js-show-text').innerHTML= myArrayHTML;
+
+    document.querySelectorAll('.js-delete-todo-button')
+        .forEach((deleteButton,index)=>{
+            deleteButton.addEventListener('click',()=>{
+                myArray.splice(index, 1);
+                localStorage.setItem('storage_list', JSON.stringify(myArray));
+                rendermyArray();
+            })
+        })
+    
     
 }
+
+document.querySelector('.js-add-todo-button').addEventListener('click',()=>{
+    addArray();
+});
 
 function addArray() {
     const input = document.querySelector('.js-input');
