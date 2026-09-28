@@ -5,11 +5,9 @@
     </head>
     <body>
 
-        <button class="js-add-button" onclick="
-            updateMessage('Add');
-             ">Add</button>
-        <button class="js-remove-button" onclick="
-         updateMessage('Remove')">Remove</button>
+        <button class="js-add-button" >Add</button>
+        
+        <button class="js-remove-button">Remove</button>
 
         <script>
             let message = 0;
@@ -18,7 +16,8 @@
 
             displayFunction();
             function displayFunction (){
-                intervalId = setInterval(function () {   if (message === 0) {
+                intervalId = setInterval(() => {   
+                    if (message === 0) {
                         stopChanging();
                     }else{
                         if (document.title === 'App') {
@@ -29,6 +28,14 @@
                         isplaying=true;
                     }  
             },1000);}
+
+            document.querySelector('.js-add-button').addEventListener('click', ()=>{
+                updateMessage('Add')
+            })
+
+            document.querySelector('.js-remove-button').addEventListener('click', ()=>{
+                updateMessage('Remove')
+            })
 
             function updateMessage(button){
                 

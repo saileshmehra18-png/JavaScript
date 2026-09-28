@@ -4,6 +4,38 @@ let score = JSON.parse(localStorage.getItem('score')) || {
     losses: 0,
     ties: 0,
 }
+function ressetScore(){
+    score.wins = 0;
+    score.losses = 0;
+    score.ties = 0;
+    localStorage.removeItem('score');
+    updateScoreElement();
+}
+function confirmResset(){
+    document.querySelector('.js-resset-confirmation').innerHTML= `Are you sure you want to Resset the scores <button class="js-yes-button">Yes</button>
+    <button class="js-no-button">No</button>`
+
+    document.querySelector('.js-yes-button').addEventListener('click', () => {
+        ressetScore();
+        document.querySelector('.js-resset-confirmation').innerHTML = '';
+    })
+
+    document.querySelector('.js-no-button').addEventListener('click', () => {
+        document.querySelector('.js-resset-confirmation').innerHTML = '';
+    })
+}
+document.querySelector('.js-resset').addEventListener('click',()=>{
+    // ressetScore();
+    confirmResset();
+})
+
+document.body.addEventListener('keydown',(event)=>{
+    if (event.key==='Backspace'){
+        // ressetScore();
+        confirmResset();
+    }
+})
+
 
 
 function updateScoreElement() {
@@ -14,9 +46,9 @@ updateScoreElement(); //this one to show the score when page loads
 
 function pickComputerMove() {
     const randomnumber = Math.random();
-
+    
     let computermove = '';
-
+    
     if (randomnumber >= 0 && randomnumber < 1 / 3) {
         computermove = 'Rock'
     } else if (randomnumber >= 1 / 3 && randomnumber < 2 / 3) {
@@ -24,23 +56,36 @@ function pickComputerMove() {
     } else {
         computermove = 'Scissors'
     }
-
+    
     return computermove;
 }
+
+document.body.addEventListener('keydown',(event)=>{
+    if(event.key==='a'){
+        autoPlay();
+    }
+})
+
+document.querySelector('.auto-play-button').addEventListener('click', ()=>{
+    autoPlay();
+})
+
 let intervalId;
 let isplaying = false;
 
 function autoPlay(){
     if (!isplaying){
-    intervalId = setInterval(() => {
-        const playerMove = pickComputerMove();
-        playGame(playerMove);
-    }, 1000);
-    isplaying = true;
-
+        intervalId = setInterval(() => {
+            const playerMove = pickComputerMove();
+            playGame(playerMove);
+        }, 1000);
+        document.querySelector('.auto-play-button').innerHTML='Stop Playing'
+        isplaying = true;
+        
     }else{
         clearInterval(intervalId);
         isplaying=false;
+        document.querySelector('.auto-play-button').innerHTML = 'Auto Play'
     }
     
 }
@@ -116,4 +161,6 @@ function playGame(playerMove) {
     document.querySelector('.js-move').innerHTML
         = `your <img src="../images/${playerImage}-emoji.png"> comp <img src="../images/${computerImage}-emoji.png">`;
 
-} 
+    } 
+    
+    

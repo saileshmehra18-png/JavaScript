@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>M-O</title>
+    </head>
+    <body>
+        <script>
+            function addNum(arr,num){
+                return arr.map(value => value+num);
+            };
+            console.log(addNum([2,5,-53],100))
+
+            function removeEggs(arr,target){
+                let count = 0
+                return arr.filter((value,index)=>{
+                    if (value===target && count<2){
+                        count++
+                        return false
+                    }else{
+                        return true
+                    }
+                }
+            )}
+            console.log(removeEggs(['egg', 'banana', 'egg', 'orange', 'egg'],'egg'))
+        </script>
+    </body>
+</html>
